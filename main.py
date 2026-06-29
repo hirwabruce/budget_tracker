@@ -53,9 +53,9 @@ if choice == "1":
            
 #Login staffs    
 elif choice == "2":
-    name = input("What is your name? ")
-    password = input("What is your password? ")
-    
+    name = input("Enter the  name? ")
+    password = input("Enter the password? ")
+    #load_data()
     if name in users and users[name]['password'] == password:
         print("Login successful.")
         print(f"Welcome back, {name}!")

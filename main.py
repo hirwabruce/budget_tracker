@@ -1,5 +1,5 @@
 
-from users import add_expense, load_data
+from users import add_expense, load_data, validate_password
 from users import add_income
 from users import add_user,users,save_data
 
@@ -11,8 +11,11 @@ load_data()
 choice = input("Enter your choice: ")
 #When a user creates a new account
 if choice == "1":
-    name_1 = input("What is your name? ")
-    password_1 = input("What is your password? ")
+    name_1 = input("Enter your username? ")
+    password_1 = input("Enter your password(8 digits required): ")
+    if not validate_password(password_1):
+        print("Password does not meet the requirements.")
+        exit()
     add_user(name_1, password_1)
     save_data()
     print("Account created successfully.")
@@ -53,7 +56,7 @@ if choice == "1":
            
 #Login staffs    
 elif choice == "2":
-    name = input("Enter the  name? ")
+    name = input("Enter the  username? ")
     password = input("Enter the password? ")
     #load_data()
     if name in users and users[name]['password'] == password:

@@ -27,3 +27,10 @@ def load_data():
         users.clear()
 
 load_data()
+
+
+def validate_password(password):
+    if len(password) < 8:
+        return False
+    
+    return True

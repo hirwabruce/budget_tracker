@@ -30,7 +30,8 @@ load_data()
 
 
 def validate_password(password):
-    if len(password) < 8:
+    if len(password) < 6:
         return False
-    
+    if not password.isdigit():
+        return False
     return True

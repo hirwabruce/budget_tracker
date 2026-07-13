@@ -12,7 +12,7 @@ choice = input("Enter your choice: ")
 #When a user creates a new account
 if choice == "1":
     name_1 = input("Enter your username? ")
-    password_1 = input("Enter your password(8 digits required): ")
+    password_1 = input("Enter your password(6 digits required): ")
     if not validate_password(password_1):
         print("Password does not meet the requirements.")
         exit()

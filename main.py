@@ -16,6 +16,9 @@ if choice == "1":
     if not validate_password(password_1):
         print("Password does not meet the requirements.")
         exit()
+    elif name_1 in users:
+        print("Username already exists. Please choose a different username.")
+        exit()    
     add_user(name_1, password_1)
     save_data()
     print("Account created successfully.")

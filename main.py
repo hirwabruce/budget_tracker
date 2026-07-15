@@ -12,13 +12,14 @@ choice = input("Enter your choice: ")
 #When a user creates a new account
 if choice == "1":
     name_1 = input("Enter your username? ")
+    if name_1 in users:
+        print("Username already exists. Please choose a different username.")
+        exit() 
     password_1 = input("Enter your password(6 digits required): ")
     if not validate_password(password_1):
         print("Password does not meet the requirements.")
         exit()
-    elif name_1 in users:
-        print("Username already exists. Please choose a different username.")
-        exit()    
+    
     add_user(name_1, password_1)
     save_data()
     print("Account created successfully.")

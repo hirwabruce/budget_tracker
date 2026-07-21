@@ -12,7 +12,7 @@ choice = input("Enter your choice: ")
 #When a user creates a new account
 if choice == "1":
     name_1 = input("Enter your username? ")
-    if name_1 in users:
+    if name_1.title() in users:
         print("Username already exists. Please choose a different username.")
         exit() 
     password_1 = input("Enter your password(6 digits required): ")
@@ -20,7 +20,7 @@ if choice == "1":
         print("Password does not meet the requirements.")
         exit()
     
-    add_user(name_1, password_1)
+    add_user(name_1.title(), password_1)
     save_data()
     print("Account created successfully.")
     print(f"Welcome, {name_1}!")
@@ -35,7 +35,7 @@ if choice == "1":
                if name_expense.lower() == 'end':
                   break
                amount_exp = float(input("Enter the amount of the expense: "))
-               add_expense(name_1, name_expense, amount_exp)
+               add_expense(name_1.title(), name_expense, amount_exp)
                save_data()
              
     elif account_choice == "2":
@@ -46,12 +46,12 @@ if choice == "1":
                 
                     
                 amount_in = float(input("Enter the amount of the income: "))
-                add_income(name_1, name_income, amount_in)
+                add_income(name_1.title(), name_income, amount_in)
     
                 save_data()
                
-    total_expenses = sum(users[name_1]['expenses'].values())
-    total_incomes = sum(users[name_1]['incomes'].values())
+    total_expenses = sum(users[name_1.title()]['expenses'].values())
+    total_incomes = sum(users[name_1.title()]['incomes'].values())
     balance = total_incomes - total_expenses
 
     print(f"Total expenses: ${total_expenses}")
@@ -76,12 +76,12 @@ elif choice == "2":
                if name_expense.lower() == 'end':
                   break
                amount_exp = float(input("Enter the amount of the expense: "))
-               add_expense(name, name_expense, amount_exp)
+               add_expense(name.title(), name_expense, amount_exp)
                save_data()
             print("Your expense sources are:")
-            for source in users[name]['expenses']:
+            for source in users[name.title()]['expenses']:
                 print(f"  - {source}")
-            total_expenses = sum(users[name]['expenses'].values())  
+            total_expenses = sum(users[name.title()]['expenses'].values())  
             print(f"Total expenses: ${total_expenses}")  
         elif login_choice == "2":
             while True:
@@ -91,16 +91,16 @@ elif choice == "2":
                 
                     
                 amount_in = float(input("Enter the amount of the income: "))
-                add_income(name, name_income, amount_in)
+                add_income(name.title(), name_income, amount_in)
                 save_data()
             print("Your income sources are:")
-            for source in users[name]['incomes']:
+            for source in users[name.title()]['incomes']:
                 print(f"  - {source}")
-            total_incomes = sum(users[name]['incomes'].values())  
+            total_incomes = sum(users[name.title()]['incomes'].values())  
             print(f"Total incomes: ${total_incomes}")  
         elif login_choice == "3":
-            total_expenses = sum(users[name]['expenses'].values())
-            total_incomes = sum(users[name]['incomes'].values())
+            total_expenses = sum(users[name.title()]['expenses'].values())
+            total_incomes = sum(users[name.title()]['incomes'].values())
             balance = total_incomes - total_expenses
 
             print(f"Total expenses: ${total_expenses}")

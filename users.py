@@ -42,3 +42,7 @@ def validate_username(username):
     if not username.isalnum():
         return False
     return True
+
+def delete_expense():
+    username = input("Enter your username: ")
+

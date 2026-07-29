@@ -35,3 +35,10 @@ def validate_password(password):
     if not password.isdigit():
         return False
     return True
+
+def validate_username(username):
+    if len(username) < 3:
+        return False
+    if not username.isalnum():
+        return False
+    return True

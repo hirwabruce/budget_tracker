@@ -1,5 +1,5 @@
 
-from users import add_expense, load_data, validate_password
+from users import add_expense, load_data, validate_password, validate_username
 from users import add_income
 from users import add_user,users,save_data
 
@@ -14,7 +14,10 @@ if choice == "1":
     name_1 = input("Enter your username? ")
     if name_1.title() in users:
         print("Username already exists. Please choose a different username.")
-        exit() 
+        exit()
+    elif not validate_username(name_1):
+        print("Username does not meet the requirements.")
+        exit()       
     password_1 = input("Enter your password(6 digits required): ")
     if not validate_password(password_1):
         print("Password does not meet the requirements.")

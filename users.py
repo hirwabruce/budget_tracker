@@ -46,3 +46,5 @@ def validate_username(username):
 def delete_expense():
     username = input("Enter your username: ")
 
+def delete_income():
+    username = input("Enter your username: ")

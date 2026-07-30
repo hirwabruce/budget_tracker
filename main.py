@@ -87,6 +87,7 @@ elif choice == "2":
                     save_data()
             elif expense_choice == "2" or expense_choice.lower() == "delete":
                 delete_expense()
+            print("Your expense sources are:")
             for source in users[name.title()]['expenses']:
                 print(f"  - {source}")
             total_expenses = sum(users[name.title()]['expenses'].values())

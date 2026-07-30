@@ -1,6 +1,6 @@
 
 from users import add_expense, load_data, validate_password, validate_username
-from users import add_income
+from users import add_income,delete_expense,delete_income
 from users import add_user,users,save_data
 
 print("Hello")
@@ -69,38 +69,53 @@ elif choice == "2":
     if name in users and users[name]['password'] == password:
         print("Login successful.")
         print(f"Welcome back, {name}!")
-        print("1.Add an expense")
-        print("2.Add an income")
-        print("3.View budget summary")
+        print("1. Expenses")
+        print("2. Incomes")
+        print("3. View budget summary")
         login_choice = input("Enter your choice: ")
         if login_choice == "1":
-            while True:
-               name_expense = input("Enter the name of the expense or type 'end' to finish: ")
-               if name_expense.lower() == 'end':
-                  break
-               amount_exp = float(input("Enter the amount of the expense: "))
-               add_expense(name.title(), name_expense, amount_exp)
-               save_data()
-            print("Your expense sources are:")
+            print("1.Add an expense")
+            print("2.Delete an expense")
+            expense_choice = input("Enter your choice (add or delete): ")
+            if expense_choice == "1" or expense_choice.lower() == "add":
+                while True:
+                    name_expense = input("Enter the name of the expense or type 'end' to finish: ")
+                    if name_expense.lower() == 'end':
+                        break
+                    amount_exp = float(input("Enter the amount of the expense: "))
+                    add_expense(name.title(), name_expense, amount_exp)
+                    save_data()
+            elif expense_choice == "2" or expense_choice.lower() == "delete":
+                delete_expense()
             for source in users[name.title()]['expenses']:
                 print(f"  - {source}")
-            total_expenses = sum(users[name.title()]['expenses'].values())  
-            print(f"Total expenses: ${total_expenses}")  
+            total_expenses = sum(users[name.title()]['expenses'].values())
+            print(f"Total expenses: ${total_expenses}")
+       
         elif login_choice == "2":
-            while True:
-                name_income = input("Enter the name of the income or type 'end' to finish: ")
-                if name_income.lower() == 'end':
-                    break
+            print("1.Add an income")
+            print("2.Delete an income")
+            income_choice = input("Enter your choice (add or delete): ")
+            if income_choice == "1" or income_choice.lower() == "add":
+
+                while True:
+                   name_income = input("Enter the name of the income or type 'end' to finish: ")
+                   if name_income.lower() == 'end':
+                      break
                 
                     
-                amount_in = float(input("Enter the amount of the income: "))
-                add_income(name.title(), name_income, amount_in)
-                save_data()
-            print("Your income sources are:")
+                   amount_in = float(input("Enter the amount of the income: "))
+                   add_income(name.title(), name_income, amount_in)
+                   save_data()
+                  
+                
+            elif income_choice == "2" or income_choice.lower() == "delete":
+                delete_income()
+            print("Your income sources are:")   
             for source in users[name.title()]['incomes']:
                 print(f"  - {source}")
-            total_incomes = sum(users[name.title()]['incomes'].values())  
-            print(f"Total incomes: ${total_incomes}")  
+                total_incomes = sum(users[name.title()]['incomes'].values())  
+                print(f"Total incomes: ${total_incomes}")  
         elif login_choice == "3":
             total_expenses = sum(users[name.title()]['expenses'].values())
             total_incomes = sum(users[name.title()]['incomes'].values())

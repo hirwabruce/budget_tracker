@@ -43,8 +43,12 @@ def validate_username(username):
         return False
     return True
 
-def delete_expense():
-    username = input("Enter your username: ")
+def delete_expense(username):
+    expense_name = input("Enter the name of the expense to delete: ")
+    if expense_name in users[username]['expenses']:
+        del users[username]['expenses'][expense_name]
+        save_data()
 
-def delete_income():
-    username = input("Enter your username: ")
+def delete_income(username):
+    income_name = input("Enter the name of the income to delete: ")
+    

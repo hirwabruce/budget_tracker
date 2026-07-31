@@ -51,4 +51,12 @@ def delete_expense(username):
 
 def delete_income(username):
     income_name = input("Enter the name of the income to delete: ")
-    
+    if income_name in users[username]['incomes']:
+        del users[username]['incomes'][income_name]
+        save_data()
+
+
+        
+
+
+

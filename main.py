@@ -86,6 +86,9 @@ elif choice == "2":
                     add_expense(name.title(), name_expense, amount_exp)
                     save_data()
             elif expense_choice == "2" or expense_choice.lower() == "delete":
+                print("As of now your expense sources are:")
+                for source in users[name.title()]['expenses']:
+                    print(f"  - {source}")
                 delete_expense(name.title())
             print("Your expense sources are:")
             for source in users[name.title()]['expenses']:
@@ -111,7 +114,10 @@ elif choice == "2":
                   
                 
             elif income_choice == "2" or income_choice.lower() == "delete":
-                delete_income()
+                print("As of now your income sources are:")
+                for source in users[name.title()]['incomes']:
+                    print(f"  - {source}")
+                delete_income(name.title())
             print("Your income sources are:")   
             for source in users[name.title()]['incomes']:
                 print(f"  - {source}")

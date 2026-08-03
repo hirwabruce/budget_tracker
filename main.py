@@ -137,6 +137,11 @@ elif choice == "2":
              print(f"{name.capitalize()}, you are in debt.")
             else:
              print(f"{name.capitalize()}, you are financially stable.")
+
+        elif login_choice == "4":
+            print("1.Change password")
+            print("2.Change username")
+            
     else:
         print("Invalid credentials.")
         exit()

@@ -55,6 +55,10 @@ def delete_income(username):
         del users[username]['incomes'][income_name]
         save_data()
 
+def change_password(username):
+    new_password = input("Enter your new password: ")
+    
+
 
         
 

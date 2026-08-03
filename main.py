@@ -72,6 +72,8 @@ elif choice == "2":
         print("1. Expenses")
         print("2. Incomes")
         print("3. View budget summary")
+        print("4. Profile")
+        print("5. Exit")
         login_choice = input("Enter your choice: ")
         if login_choice == "1":
             print("1.Add an expense")

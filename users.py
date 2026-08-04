@@ -64,6 +64,10 @@ def change_password(username):
     
 def change_username(username):
     new_username = input("Enter your new username: ")
+    if validate_username(new_username):
+        users[new_username] = users.pop(username)
+        save_data()
+        print("Username changed successfully.")
 
         
 

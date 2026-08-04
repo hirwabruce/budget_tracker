@@ -139,6 +139,10 @@ elif choice == "2":
              print(f"{name.capitalize()}, you are financially stable.")
 
         elif login_choice == "4":
+            password = input("Enter your password to access profile settings: ")
+            if users[name.title()]['password'] != password:
+                print("Incorrect password. Access denied.")
+                exit()
             print("1.Change password")
             print("2.Change username")
             profile_choice = input("Enter your choice: ")

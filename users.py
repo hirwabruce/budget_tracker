@@ -57,6 +57,10 @@ def delete_income(username):
 
 def change_password(username):
     new_password = input("Enter your new password: ")
+    if validate_password(new_password):
+        users[username]['password'] = new_password
+        save_data()
+        print("Password changed successfully.")
     
 def change_username(username):
     new_username = input("Enter your new username: ")

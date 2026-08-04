@@ -1,5 +1,5 @@
 
-from users import add_expense, load_data, validate_password, validate_username
+from users import add_expense, change_password, change_username, load_data, validate_password, validate_username
 from users import add_income,delete_expense,delete_income
 from users import add_user,users,save_data
 
@@ -141,7 +141,12 @@ elif choice == "2":
         elif login_choice == "4":
             print("1.Change password")
             print("2.Change username")
-            
+            profile_choice = input("Enter your choice: ")
+            if profile_choice == "1":
+                change_password(name.title())
+            elif profile_choice == "2":
+                change_username(name.title())
+
     else:
         print("Invalid credentials.")
         exit()

@@ -69,8 +69,8 @@ def change_username(username):
         save_data()
         print("Username changed successfully.")
 
-def hide_password(password):
-    return '*' * len(password)
+#def hide_password(password):
+    #return '*' * len(password)
         
 
 

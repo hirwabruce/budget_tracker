@@ -1,5 +1,5 @@
 
-from users import add_expense, change_password, change_username, load_data, validate_password, validate_username
+from users import add_expense, change_password, change_username, hide_password, load_data, validate_password, validate_username
 from users import add_income,delete_expense,delete_income
 from users import add_user,users,save_data
 
@@ -18,7 +18,7 @@ if choice == "1":
     elif not validate_username(name_1):
         print("Username does not meet the requirements.")
         exit()       
-    password_1 = input("Enter your password(6 digits required): ")
+    password_1 = hide_password(input("Enter your password(6 digits required): "))
     if not validate_password(password_1):
         print("Password does not meet the requirements.")
         exit()
@@ -64,7 +64,7 @@ if choice == "1":
 #Login staffs    
 elif choice == "2":
     name = input("Enter the  username? ")
-    password = input("Enter the password? ")
+    password = hide_password(input("Enter the password? "))
     #load_data()
     if name in users and users[name]['password'] == password:
         print("Login successful.")
@@ -139,7 +139,7 @@ elif choice == "2":
              print(f"{name.capitalize()}, you are financially stable.")
 
         elif login_choice == "4":
-            password = input("Enter your password to access profile settings: ")
+            password = hide_password(input("Enter your password to access profile settings: "))
             if users[name.title()]['password'] != password:
                 print("Incorrect password. Access denied.")
                 exit()
@@ -147,7 +147,7 @@ elif choice == "2":
             print("2.Change username")
             profile_choice = input("Enter your choice: ")
             if profile_choice == "1":
-                change_password(name.title())
+                hide_password(change_password(name.title()))
             elif profile_choice == "2":
                 change_username(name.title())
 

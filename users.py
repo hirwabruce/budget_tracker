@@ -70,8 +70,7 @@ def change_username(username):
         print("Username changed successfully.")
 
 def hide_password(password):
-    #return '*' * len(password)
-    return password
+    return '*' * len(password)
         
 
 

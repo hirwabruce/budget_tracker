@@ -5,3 +5,4 @@ A simple budget tracker program built with Python.
 -Record Expenses
 -Record Income
 -Track your balance
+-Manage your profile
